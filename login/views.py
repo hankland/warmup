@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from login.models import UsersModel, add,login,reset
+from login.models import UsersModel, add,login,TESTAPI_resetFixture
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 import json
