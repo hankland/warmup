@@ -20,7 +20,7 @@ def login(user, password):
     u = qs[0]
     u.count = u.count + 1
     u.save()
-    return SUCCESS
+    return u.count
 
 def add(user, password):
     if len(user) > 128 or len(user) == 0:
