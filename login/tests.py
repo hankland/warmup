@@ -12,7 +12,7 @@ class Test(TestCase):
     def simple_add(self):
         TestAPI_resetFixture()
         r = add('name','pass')
-        self.assertTrue(r==1)
+        self.assertTrue(r==0)
     def simple_reset(self):
         TestAPI_resetFixture()
         r = add('name','pass')
