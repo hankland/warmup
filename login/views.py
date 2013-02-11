@@ -2,9 +2,9 @@
 from django.http import HttpResponse
 from login.models import UsersModel
 import login.models
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 
 
 def index(request):
-    return render('client.html')
+    return render_to_response('client.html', {})
 
