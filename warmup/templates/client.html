@@ -14,6 +14,7 @@
   <div id="login-message" class="message"></div>
   <center>
     <form>
+      {% csrf_token %}
       Username: <input id="login-username" type="text" name="username"><br>
       Password: <input id="login-password" type="password" name="pwd"><br>
       <input id="login-button" type="submit" value="Login">
@@ -26,6 +27,7 @@
   <div id="welcome-message" class="message"></div>
   <center>
     <form>
+      {% csrf_token %}
       <input type="submit" id="logout-button" value="Logout">
     </form>
   </center>
