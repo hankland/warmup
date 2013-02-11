@@ -11,11 +11,11 @@ def index(request):
     c = {}
     return render_to_response('client.html', c)
 
-def login(request):
+def log(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = login.models.login(user,password)
+    r = models.login(user,password)
     s = ''
     if r > 1:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -27,7 +27,7 @@ def add(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = login.models.add(user,password)
+    r = models.add(user,password)
     s = ''
     if r > 1:
         s = json.dumps({'errCode' : 1,'count' : r})
