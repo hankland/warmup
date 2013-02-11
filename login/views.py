@@ -43,7 +43,7 @@ def r(request):
 def tests(request):
     numTests = 10
     numFailed = 0
-    #t = SimpleTest()
+    t = SimpleTest()
     output = "a"#t.test_basic_addition()
 
     s = json.dumps({'totalTests' : numTests,
