@@ -16,7 +16,7 @@ def log(request):
     password = d['password']
     r = login(user,password)
     s = ''
-    if r > 1:
+    if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
     else:
         s = json.dumps({'errCode' : r})
@@ -28,17 +28,25 @@ def a(request):
     password = d['password']
     r = add(user,password)
     s = ''
-    if r > 1:
+    if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
     else:
         s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
 def r(request):
-    return HttpResponse("<html><body>login</body></html>")
+    r = TESTAPI_resetFixture()
+    s = json.dumps({'errCode' : r})
+    return HttpResponse(s,content_type=m)
 
 def tests(request):
-    return HttpResponse("<html><body>login</body></html>")
+    numTests = 10
+    numFailed = 0
+    output = 'passed all'
+    s = json.dumps({'totalTests' : numTests,
+                    'nrFailed' : numFailed,
+                    'output' : output})
+    return HttpResponse(s,content_type=m)
 
 
 
