@@ -4,6 +4,7 @@ from login.models import UsersModel, add,login,TESTAPI_resetFixture
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 import json
+from login.tests import SimpleTest
 
 m = 'application/json'
 def index(request):
@@ -42,7 +43,8 @@ def r(request):
 def tests(request):
     numTests = 10
     numFailed = 0
-    output = 'passed all'
+    output = SimpleTest.test_basic_addition()
+
     s = json.dumps({'totalTests' : numTests,
                     'nrFailed' : numFailed,
                     'output' : output})
