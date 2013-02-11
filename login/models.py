@@ -30,7 +30,7 @@ def add(user, password):
     qs = UsersModel.objects.filter(user__exact=user)
     if qs:
         return ERR_USER_EXISTS
-    u = UsersModel(user=user, password=password, count=0)
+    u = UsersModel(user=user, password=password, count=1)
     u.save()
     return SUCCESS
 
