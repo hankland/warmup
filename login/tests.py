@@ -12,7 +12,7 @@ class Test(TestCase):
     def simple_add(self):
         TESTAPI_resetFixture()
         r = add('name','pass')
-        self.assertTrue(r==-9)
+        self.assertTrue(r==1)
     def simple_reset(self):
         TESTAPI_resetFixture()
         r = add('name','pass')
