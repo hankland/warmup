@@ -4,8 +4,8 @@ from login.models import UsersModel, add,login,TESTAPI_resetFixture
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 import json
-from login.tests import SimpleTest
-
+from login.tests import Test
+from unittest import TestResult
 m = 'application/json'
 def index(request):
     c = {}
@@ -41,10 +41,21 @@ def r(request):
     return HttpResponse(s,content_type=m)
 
 def tests(request):
-    numTests = 10
-    numFailed = 0
-    t = SimpleTest()
-    output = "a"#t.test_basic_addition()
+    test_list = ['simple_add', 'simple_reset', 
+                 'short_username', 'long_username', 
+                 'long_pass', 'existing_user', 
+                 'simple_login', 'wrong_pass', 
+                 'wrong_user', 'two_users']
+    result = TestResult()
+    for test in test_list:
+        t = Test(test)
+        t.run(result)
+    
+    numTests = result.testsRun
+    numFailed = len(result.failures)
+    output = "ALL PASSED"
+    if numFailed > 0:
+        output = str(result.failures)
 
     s = json.dumps({'totalTests' : numTests,
                     'nrFailed' : numFailed,
