@@ -7,7 +7,6 @@ from django.core.context_processors import csrf
 
 def index(request):
     c = {}
-    c.update(csrf(request))
     return render_to_response('client.html', c)
 
 def login(request):
