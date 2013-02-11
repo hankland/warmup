@@ -53,7 +53,7 @@ def tests(request):
     
     numTests = result.testsRun
     numFailed = len(result.failures)
-    output = str(result.failures)
+    output = 'ALL PASSED'
     if numFailed > 0:
         output = str(result.failures)
 
