@@ -5,5 +5,5 @@ import login.models
 
 
 def index(request):
-    return HttpResponse("<html><body>Hello</body></html>")
+    return render('client.html')
 
