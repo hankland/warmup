@@ -5,6 +5,10 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url('^users/login$', 'login.views.login'),
+    url('^users/add$', 'login.views.add'),
+    url('^TESTAPI/resetFixture$', 'login.views.reset'),
+    url('^TESTAPI/unitTests$', 'login.views.tests'),
     url('', 'login.views.index'),
     # Examples:
     # url(r'^$', 'warmup.views.home', name='home'),
