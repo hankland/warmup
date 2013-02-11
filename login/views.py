@@ -1,7 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from login.models import UsersModel
-import login.models
+from login.models import UsersModel, add,login,reset
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 import json
@@ -15,7 +14,7 @@ def log(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = models.login(user,password)
+    r = login(user,password)
     s = ''
     if r > 1:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -23,11 +22,11 @@ def log(request):
         s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
-def add(request):
+def a(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = models.add(user,password)
+    r = add(user,password)
     s = ''
     if r > 1:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -35,7 +34,7 @@ def add(request):
         s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
-def reset(request):
+def r(request):
     return HttpResponse("<html><body>login</body></html>")
 
 def tests(request):
