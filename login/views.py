@@ -14,7 +14,7 @@ def login(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = models.login(user,password)
+    r = login.models.login(user,password)
     s = ''
     if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -26,7 +26,7 @@ def add(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = models.add(user,password)
+    r = login.models.add(user,password)
     s = ''
     if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -35,7 +35,7 @@ def add(request):
     return HttpResponse(s,content_type=m)
 
 def reset(request):
-    r = models.TESTAPI_resetFixture()
+    r = login.models.TESTAPI_resetFixture()
     s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
