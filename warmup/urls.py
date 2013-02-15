@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     url('^users/add$', 'login.views.a'),
     url('^TESTAPI/resetFixture$', 'login.views.r'),
     url('^TESTAPI/unitTests$', 'login.views.tests'),
-    url('', 'login.views.index'),
     # Examples:
     # url(r'^$', 'warmup.views.home', name='home'),
     # url(r'^warmup/', include('warmup.foo.urls')),
