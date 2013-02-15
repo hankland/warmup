@@ -4,18 +4,17 @@ from login.models import UsersModel, add,login,TESTAPI_resetFixture
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
 import json
+import login.models
 from login.tests import Test
 from unittest import TestResult
+
 m = 'application/json'
-def index(request):
-    c = {}
-    return render_to_response('client.html', c)
 
-def log(request):
+def login(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = login(user,password)
+    r = models.login(user,password)
     s = ''
     if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -23,11 +22,11 @@ def log(request):
         s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
-def a(request):
+def add(request):
     d = json.loads(request.body)
     user = d['user']
     password = d['password']
-    r = add(user,password)
+    r = models.add(user,password)
     s = ''
     if r > 0:
         s = json.dumps({'errCode' : 1,'count' : r})
@@ -35,8 +34,8 @@ def a(request):
         s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 
-def r(request):
-    r = TESTAPI_resetFixture()
+def reset(request):
+    r = models.TESTAPI_resetFixture()
     s = json.dumps({'errCode' : r})
     return HttpResponse(s,content_type=m)
 

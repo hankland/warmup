@@ -5,9 +5,9 @@ from django.conf import settings
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url('^users/login$', 'login.views.log'),
-    url('^users/add$', 'login.views.a'),
-    url('^TESTAPI/resetFixture$', 'login.views.r'),
+    url('^users/login$', 'login.views.login'),
+    url('^users/add$', 'login.views.add'),
+    url('^TESTAPI/resetFixture$', 'login.views.reset'),
     url('^TESTAPI/unitTests$', 'login.views.tests'),
     # Examples:
     # url(r'^$', 'warmup.views.home', name='home'),
