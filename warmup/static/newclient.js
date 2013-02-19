@@ -15,6 +15,10 @@ function set_message(err) {
     }
 }
 
+function on_error(err) {
+   alert('error occurred on request');
+}
+
 function on_return(data) {
    if( data.errCode > 0) {
        $('#count').html(data.count);
@@ -35,8 +39,8 @@ function one() {
         data: JSON.stringify({ user: $('#username').val(), password : $('#password').val()}),
         contentType: "application/json",
         dataType: "json",
-        success: on_return
-        error: function(err) { alert('error occurred on request'); }
+        success: on_return,
+        error: on_error
         });
     $('#user').html($('#username').val());
     
@@ -49,8 +53,8 @@ function two() {
         data: JSON.stringify({ user: $('#username').val(), password : $('#password').val()}),
         contentType: "application/json",
         dataType: "json",
-        success: on_return
-        error: function(err) { alert('error occurred on request'); }
+        success: on_return,
+        error: on_error
         });
     $('#user').html($('#username').val());
 }
