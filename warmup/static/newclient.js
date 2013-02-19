@@ -8,10 +8,15 @@ function one() {
 }
 
 function two() {
-    alert('works2');
+    $('#page1').hide();
+    $('#page2').show();
 }
 
 function three() {
-    alert('works3');
+    $('#username').val("");
+    $('#password').val("");
+    $('#message').html("Please enter your credentials below");
+    $('#page2').hide();
+    $('#page1').show();
 }
 
