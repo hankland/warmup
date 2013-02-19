@@ -1,24 +1,28 @@
 <html>
 <head>
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 
 <body>
-<div style="color:#0000FF">
+<div id=page1 >
 <div id=message>Please enter your credentials below</div>
 <form>
-<input type="text" name="Username"></br>
-<input type="text" name="Password"></br>
+Username: <input type="text" name="Username"></br>
+Password: <input type="text" name="Password"></br>
 <input type="button" value="Login" onclick="javascript:alert('works1');">
 <input type="button" value="Add User" onclick="javascript:alert('works2');">
 </form>
 </div>
-</br>
-<div style="color:#FF0000">
-<div> Welcome <span id=username>user</span></br>
-You have logged in <span id=count>1</span> times.</div></br>
+<div id=page2 >
+<div>Welcome <span id=username></span></br>
+You have logged in <span id=count></span> times.</div></br>
 <input type="button" value="Logout" onclick="javascript:alert('works3');">
 </div>
+
+<script type="text/javascript">
+$('page1').hide()
+</script>
 
 </body>
 </html>
