@@ -27,6 +27,7 @@ function on_return(data) {
    }
 }
 
+
 function one() {
     $.ajax({
         type: 'POST',
@@ -35,7 +36,7 @@ function one() {
         contentType: "application/json",
         dataType: "json",
         success: on_return
-        error: alert("bad request")
+        error: function(err) { alert('error occurred on request'); });
         });
     $('#user').html($('#username').val());
     
@@ -49,7 +50,7 @@ function two() {
         contentType: "application/json",
         dataType: "json",
         success: on_return
-        error: alert("bad request") 
+        error: function(err) { alert('error occurred on request'); });
         });
     $('#user').html($('#username').val());
 }
