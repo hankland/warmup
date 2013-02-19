@@ -36,7 +36,7 @@ function one() {
         contentType: "application/json",
         dataType: "json",
         success: on_return
-        error: function(err) { alert('error occurred on request'); })
+        error: function(err) { alert('error occurred on request'); }
         });
     $('#user').html($('#username').val());
     
@@ -50,7 +50,7 @@ function two() {
         contentType: "application/json",
         dataType: "json",
         success: on_return
-        error: function(err) { alert('error occurred on request'); })
+        error: function(err) { alert('error occurred on request'); }
         });
     $('#user').html($('#username').val());
 }
