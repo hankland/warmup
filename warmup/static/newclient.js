@@ -1,3 +1,4 @@
+/* set the message displayed on error based on the error code*/
 function set_message(err) {
     if (err == -1) {
         $('#message').html("Invalid username and password combination. Please try again. ");
@@ -10,9 +11,8 @@ function set_message(err) {
     }
 }
 
-function on_error(err) {
-   alert('error occurred on request');
-}
+
+/* simple function to either switch to the logged in page or display an error */
 
 function on_return(data) {
    if( data.errCode > 0) {
@@ -26,6 +26,7 @@ function on_return(data) {
    }
 }
 
+/* function to login - does simple ajax and updates the user */
 
 function login() {
     $.ajax({
@@ -35,12 +36,13 @@ function login() {
         contentType: "application/json",
         dataType: "json",
         success: on_return,
-        error: on_error
+        error: function on_error(err) {alert('error occurred on request'); }
         });
     $('#user').html($('#username').val());
     
 }
 
+/* function to add user - does simple ajax and updates the user */
 function add() {
     $.ajax({
         type: 'POST',
@@ -49,10 +51,12 @@ function add() {
         contentType: "application/json",
         dataType: "json",
         success: on_return,
-        error: on_error
+        error: function on_error(err) {alert('error occurred on request'); }
         });
     $('#user').html($('#username').val());
 }
+
+/* logout by reseting user, password, message and switching pages */
 
 function logout() {
     $('#username').val("");
