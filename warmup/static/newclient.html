@@ -1,7 +1,7 @@
 <html>
 <head>
-
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="newclient.js"></script>
 </head>
 
 <body>
@@ -10,18 +10,18 @@
 <form>
 Username: <input type="text" name="Username"></br>
 Password: <input type="text" name="Password"></br>
-<input type="button" value="Login" onclick="javascript:alert('works1');">
-<input type="button" value="Add User" onclick="javascript:alert('works2');">
+<input type="button" value="Login" onclick="javascript:one();">
+<input type="button" value="Add User" onclick="javascript:two();">
 </form>
 </div>
 <div id=page2 >
 <div>Welcome <span id=username></span></br>
 You have logged in <span id=count></span> times.</div></br>
-<input type="button" value="Logout" onclick="javascript:alert('works3');">
+<input type="button" value="Logout" onclick="javascript:three();">
 </div>
 
 <script type="text/javascript">
-$('#page1').hide()
+$('#page2').hide()
 </script>
 
 </body>
