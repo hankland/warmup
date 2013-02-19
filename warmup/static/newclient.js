@@ -49,7 +49,7 @@ function one() {
 function two() {
     $.ajax({
         type: 'POST',
-        url: '/users/login',
+        url: '/users/add',
         data: JSON.stringify({ user: $('#username').val(), password : $('#password').val()}),
         contentType: "application/json",
         dataType: "json",
