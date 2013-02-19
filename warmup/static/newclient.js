@@ -5,13 +5,13 @@ ERR_BAD_PASSWORD  = (-4);
 
 function set_message(err) {
     if (err == -1) {
-        $('#message').val("Invalid username and password combination. Please try again. ");
+        $('#message').html("Invalid username and password combination. Please try again. ");
     } else if (err == -2) {
-        $('#message').val("This user name already exists. Please try again.");
+        $('#message').html("This user name already exists. Please try again.");
     } else if (err == -3) {
-        $('#message').val("The user name should not be empty and at most 128 characters long. Please try again.");
+        $('#message').html("The user name should not be empty and at most 128 characters long. Please try again.");
     } else if (err == -4) {
-        $('#message').val("The password should be at most 128 characters long. Please try again");
+        $('#message').html("The password should be at most 128 characters long. Please try again");
     }
 }
 
