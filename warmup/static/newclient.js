@@ -1,8 +1,3 @@
-ERR_BAD_CREDENTIALS = (-1);
-ERR_USER_EXISTS = (-2);
-ERR_BAD_USERNAME = (-3);
-ERR_BAD_PASSWORD  = (-4);
-
 function set_message(err) {
     if (err == -1) {
         $('#message').html("Invalid username and password combination. Please try again. ");
@@ -32,7 +27,7 @@ function on_return(data) {
 }
 
 
-function one() {
+function login() {
     $.ajax({
         type: 'POST',
         url: '/users/login',
@@ -46,7 +41,7 @@ function one() {
     
 }
 
-function two() {
+function add() {
     $.ajax({
         type: 'POST',
         url: '/users/add',
@@ -59,7 +54,7 @@ function two() {
     $('#user').html($('#username').val());
 }
 
-function three() {
+function logout() {
     $('#username').val("");
     $('#password').val("");
     $('#message').html("Please enter your credentials below");
